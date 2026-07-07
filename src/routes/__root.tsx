@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  Link,
   createRootRouteWithContext,
   useRouter,
   HeadContent,
@@ -11,27 +10,13 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Nav } from "../components/Nav";
-import { Footer } from "../components/Footer";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="font-display text-8xl font-black text-gradient-ember">404</h1>
-        <h2 className="mt-4 font-display text-2xl font-semibold">Página não encontrada</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Essa página saiu do cardápio. Volte ao início para explorar o festival.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-full bg-gradient-ember px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow"
-          >
-            Voltar ao início
-          </Link>
-        </div>
-      </div>
+    <div style={{ padding: 80, textAlign: "center" }}>
+      <h1>404</h1>
+      <p>Página não encontrada.</p>
+      <a href="/" className="btn btn-primary">Voltar</a>
     </div>
   );
 }
@@ -42,26 +27,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="font-display text-2xl font-semibold">Algo saiu do forno errado</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Tente novamente ou volte para o início.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
-            onClick={() => { router.invalidate(); reset(); }}
-            className="rounded-full bg-gradient-ember px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow"
-          >
-            Tentar de novo
-          </button>
-          <a href="/" className="rounded-full border border-border px-6 py-3 text-sm font-semibold">
-            Início
-          </a>
-        </div>
-      </div>
+    <div style={{ padding: 80, textAlign: "center" }}>
+      <h1>Ops</h1>
+      <p>Algo deu errado.</p>
+      <button className="btn btn-primary" onClick={() => { router.invalidate(); reset(); }}>
+        Tentar de novo
+      </button>
     </div>
   );
 }
@@ -71,12 +43,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FDS Gourmet Festival — Fim de Semana Gourmet pelo Brasil" },
-      { name: "description", content: "Festival itinerante de gastronomia, cerveja artesanal, shows, carros antigos e espaço kids. Mais de 500 edições em 100 cidades do Brasil." },
-      { name: "author", content: "FDS Gourmet" },
+      { title: "FDS Gourmet Festival | Evento gastronômico para cidades" },
+      { name: "description", content: "Landing page do FDS Gourmet Festival: evento gratuito para toda a família, com gastronomia, shows, espaço kids, bares, cerveja artesanal, exposição de carros e valorização do comércio local." },
+      { name: "keywords", content: "FDS Gourmet, festival gastronômico, evento gourmet, praça de alimentação, comércio local, food trucks, festival familiar" },
+      { name: "author", content: "FDS Gourmet Brasil" },
       { property: "og:title", content: "FDS Gourmet Festival" },
-      { property: "og:description", content: "Gastronomia, shows e experiências para toda a família. Leve o FDS Gourmet para sua cidade." },
+      { property: "og:description", content: "Leve um festival gastronômico, gratuito e familiar para sua cidade." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/assets/pages/page-01.webp" },
+      { name: "theme-color", content: "#008b96" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -84,7 +59,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -109,14 +84,9 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
     <QueryClientProvider client={queryClient}>
-      <Nav />
-      <main className="pt-20">
-        <Outlet />
-      </main>
-      <Footer />
+      <Outlet />
     </QueryClientProvider>
   );
 }
