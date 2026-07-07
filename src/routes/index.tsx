@@ -14,7 +14,9 @@ function Landing() {
   const [scrolled, setScrolled] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [videoMuted, setVideoMuted] = useState(true);
   const rootRef = useRef<HTMLDivElement>(null);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -53,6 +55,22 @@ function Landing() {
       window.removeEventListener("keydown", onKey);
     };
   }, [lightbox]);
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+    // Start muted to comply with browser autoplay policy
+    video.muted = true;
+    video.volume = 1;
+    void video.play();
+  }, []);
+
+  const handleUnmute = () => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+    video.muted = false;
+    setVideoMuted(false);
+  };
 
   const closeNav = () => setNavOpen(false);
 
@@ -103,17 +121,49 @@ function Landing() {
             </div>
           </div>
 
-          <div className="hero-media reveal delay-1">
+          <div className="hero-media reveal delay-1" style={{ position: "relative" }}>
             <video
+              ref={heroVideoRef}
               src="https://growmoneydigital.com.br/conferflow/video.mp4"
               poster="/assets/pages/page-01.webp"
               aria-label="Vídeo de apresentação do FDS Gourmet"
               autoPlay
-              muted
               loop
               playsInline
+              muted
               controls
             />
+            {videoMuted && (
+              <button
+                onClick={handleUnmute}
+                aria-label="Ativar som do vídeo"
+                style={{
+                  position: "absolute",
+                  bottom: "70px",
+                  right: "16px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  background: "rgba(0,0,0,0.72)",
+                  color: "#fff",
+                  border: "1.5px solid rgba(255,255,255,0.35)",
+                  borderRadius: "999px",
+                  padding: "8px 16px",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  backdropFilter: "blur(6px)",
+                  letterSpacing: "0.03em",
+                  zIndex: 10,
+                  transition: "background 0.2s",
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77 0-4.28-2.99-7.86-7-8.77z"/>
+                </svg>
+                Ativar som
+              </button>
+            )}
           </div>
         </section>
 
