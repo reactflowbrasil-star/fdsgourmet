@@ -104,7 +104,15 @@ function Landing() {
           </div>
 
           <div className="hero-media reveal delay-1">
-            <img src="/assets/pages/page-01.webp" alt="Apresentação de negócio FDS Gourmet" />
+            <video
+              src="https://growmoneydigital.com.br/conferflow/video.mp4"
+              poster="/assets/pages/page-01.webp"
+              aria-label="Vídeo de apresentação do FDS Gourmet"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
           </div>
         </section>
 
