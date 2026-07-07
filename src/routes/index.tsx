@@ -108,10 +108,9 @@ function Landing() {
               src="https://growmoneydigital.com.br/conferflow/video.mp4"
               poster="/assets/pages/page-01.webp"
               aria-label="Vídeo de apresentação do FDS Gourmet"
-              autoPlay
-              muted
               loop
               playsInline
+              controls
             />
           </div>
         </section>
