@@ -7,6 +7,7 @@ export const Route = createFileRoute("/")({
 
 const WA_HOME = "https://wa.me/5562982195886?text=Ol%C3%A1%2C%20quero%20levar%20o%20FDS%20Gourmet%20para%20minha%20cidade.";
 const WA_INFO = "https://wa.me/5562982195886?text=Ol%C3%A1%2C%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20FDS%20Gourmet%20Festival.";
+const WA_FLOATING = "https://wa.me/556282195886?text=Desejo%20trazer%20o%20evento%20para%20minha%20cidade!";
 
 const galleryPages = Array.from({ length: 20 }, (_, i) => String(i + 1).padStart(2, "0"));
 
@@ -357,6 +358,18 @@ function Landing() {
         <p>FDS Gourmet Festival - Gastronomia, entretenimento e comércio local.</p>
         <a href="#topo">Voltar ao topo</a>
       </footer>
+
+      <a
+        className="whatsapp-float"
+        href={WA_FLOATING}
+        target="_blank"
+        rel="noopener"
+        aria-label="Chamar no WhatsApp"
+      >
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16.03 3.2A12.74 12.74 0 0 0 5.16 22.6L3.6 28.8l6.36-1.49A12.73 12.73 0 1 0 16.03 3.2Zm0 2.34a10.39 10.39 0 1 1-5.3 19.33l-.42-.25-3.27.77.8-3.14-.28-.45A10.4 10.4 0 0 1 16.03 5.54Zm-4.38 5.55c-.25 0-.65.09-.99.46-.34.37-1.3 1.27-1.3 3.1 0 1.82 1.33 3.58 1.51 3.83.19.25 2.57 4.12 6.34 5.62 3.14 1.24 3.78.99 4.46.93.68-.06 2.2-.9 2.51-1.77.31-.87.31-1.61.22-1.77-.09-.15-.34-.25-.71-.43-.37-.19-2.2-1.09-2.54-1.21-.34-.12-.59-.19-.84.18-.25.37-.96 1.21-1.18 1.46-.22.25-.43.28-.81.09-.37-.19-1.58-.58-3.01-1.86-1.11-.99-1.86-2.22-2.08-2.59-.22-.37-.02-.57.16-.75.17-.17.37-.43.56-.65.19-.22.25-.37.37-.62.12-.25.06-.46-.03-.65-.09-.18-.84-2.02-1.15-2.76-.3-.72-.61-.62-.84-.63h-.72Z" />
+        </svg>
+      </a>
 
       <div
         className={`lightbox${lightbox ? " is-open" : ""}`}
