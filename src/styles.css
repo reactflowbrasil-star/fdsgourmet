@@ -178,7 +178,7 @@ h3 { margin-bottom: 10px; color: #1d2225; font-size: 1.18rem; line-height: 1.18;
   position: absolute;
   z-index: 4;
   display: block;
-  width: clamp(118px, 14vw, 190px);
+  width: clamp(120px, 13vw, 178px);
   pointer-events: none;
   filter: drop-shadow(0 18px 22px rgba(0, 0, 0, .18));
   border-radius: 0;
@@ -188,51 +188,31 @@ h3 { margin-bottom: 10px; color: #1d2225; font-size: 1.18rem; line-height: 1.18;
 .mascot-one { animation: mascot-bob 5.4s ease-in-out infinite; }
 .mascot-two { animation: mascot-bob 5.8s ease-in-out infinite reverse; }
 
-.mascot-peek {
-  right: -36px;
-  bottom: -30px;
-  width: clamp(130px, 16vw, 220px);
-  transform: rotate(4deg);
+.section-mascot-break {
+  position: relative;
+  z-index: 5;
+  width: min(var(--max), calc(100% - 40px));
+  height: 0;
+  margin: 0 auto;
+  pointer-events: none;
 }
 
-.mascot-corner {
-  right: -34px;
-  top: -52px;
-  width: clamp(118px, 13vw, 182px);
-  transform: rotate(-8deg);
-}
-
-.mascot-badge {
-  left: -44px;
-  bottom: -42px;
-  width: clamp(112px, 13vw, 176px);
-  transform: rotate(-5deg);
-}
-
-.mascot-contact {
-  right: -30px;
-  bottom: -46px;
-  width: clamp(126px, 15vw, 198px);
+.mascot-break-right .section-mascot {
+  right: clamp(8px, 4vw, 58px);
+  top: -92px;
   transform: rotate(5deg);
 }
 
-.mascot-spotlight {
-  right: max(18px, calc((100vw - var(--max)) / 2));
-  top: 28px;
-  width: clamp(112px, 12vw, 168px);
-  transform: rotate(8deg);
-  opacity: .94;
-}
-
-.city-section {
-  position: relative;
-}
-
-.mascot-city {
-  right: 14px;
-  top: 26px;
-  width: clamp(118px, 14vw, 190px);
+.mascot-break-left .section-mascot {
+  left: clamp(8px, 4vw, 58px);
+  top: -62px;
   transform: rotate(-7deg);
+}
+
+.mascot-break-center .section-mascot {
+  left: 50%;
+  top: -72px;
+  transform: translateX(-50%) rotate(4deg);
 }
 
 @keyframes mascot-bob {
@@ -377,13 +357,11 @@ h3 { margin-bottom: 10px; color: #1d2225; font-size: 1.18rem; line-height: 1.18;
   .hero-media { margin-bottom: 96px; }
   .hero-mascot { left: 8px; bottom: -108px; width: clamp(142px, 32vw, 190px); }
   .hero-mascot-bubble { left: 66%; top: 2%; max-width: 190px; font-size: .72rem; }
-  .section-mascot { width: 118px; }
-  .mascot-peek { right: -10px; bottom: -46px; }
-  .mascot-corner { right: -8px; top: -34px; }
-  .mascot-badge { left: -8px; bottom: -48px; }
-  .mascot-contact { right: 0; bottom: -58px; }
-  .mascot-spotlight { top: 22px; right: 18px; width: 102px; opacity: .86; }
-  .mascot-city { top: 16px; right: 4px; width: 104px; opacity: .9; }
+  .section-mascot-break { width: min(100% - 28px, var(--max)); }
+  .section-mascot { width: 104px; opacity: .95; }
+  .mascot-break-right .section-mascot { right: 10px; top: -68px; }
+  .mascot-break-left .section-mascot { left: 10px; top: -54px; }
+  .mascot-break-center .section-mascot { top: -58px; }
   .split-section.reverse .section-copy { order: 0; }
   .metrics { grid-template-columns: repeat(2, 1fr); }
   .feature-card, .feature-card-wide { grid-column: span 3; }
@@ -404,14 +382,10 @@ h3 { margin-bottom: 10px; color: #1d2225; font-size: 1.18rem; line-height: 1.18;
   .hero-media { margin-bottom: 124px; }
   .hero-mascot { left: -4px; bottom: -132px; width: 148px; }
   .hero-mascot-bubble { left: 84px; top: 10px; max-width: 170px; }
-  .section-mascot { width: 92px; }
-  .mascot-peek { right: -4px; bottom: -38px; }
-  .mascot-corner, .mascot-spotlight, .mascot-city { display: none; }
-  .mascot-badge { left: 0; bottom: -42px; }
-  .mascot-contact { right: 8px; bottom: -48px; }
-  .differential-section .visual-card,
-  .contact-image,
-  .phone-gallery { margin-bottom: 54px; }
+  .section-mascot { width: 78px; opacity: .9; }
+  .mascot-break-right .section-mascot { right: 4px; top: -48px; }
+  .mascot-break-left .section-mascot { left: 4px; top: -44px; }
+  .mascot-break-center .section-mascot { top: -48px; }
   .btn, .social-links a { width: 100%; }
   .metrics, .feature-grid, .city-grid, .gallery-grid, .video-cards, .benefit-list { grid-template-columns: 1fr; }
   .feature-card, .feature-card-wide, .video-card:nth-child(5) { grid-column: span 1; }
