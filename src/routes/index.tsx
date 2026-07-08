@@ -188,10 +188,12 @@ function Landing() {
           </div>
           <div className="visual-card reveal delay-1">
             <img src="/assets/pages/page-02.webp" alt="Resumo do Projeto FDS Gourmet Tour Brasil" loading="lazy" />
+            <img className="section-mascot mascot-peek mascot-one" src="/assets/mascote-fds-gourmet-02.png" alt="" aria-hidden="true" loading="lazy" />
           </div>
         </section>
 
         <section id="atrativos" className="feature-section">
+          <img className="section-mascot mascot-spotlight" src="/assets/mascote-fds-gourmet.png" alt="" aria-hidden="true" loading="lazy" />
           <div className="section-shell center reveal">
             <p className="eyebrow">Atrativos do festival</p>
             <h2>5 experiências em um só evento.</h2>
@@ -233,6 +235,7 @@ function Landing() {
         <section className="family-section section-shell">
           <div className="phone-gallery reveal">
             <img src="/assets/pages/page-04.webp" alt="Festival para incluir toda família" loading="lazy" />
+            <img className="section-mascot mascot-corner mascot-two" src="/assets/mascote-fds-gourmet-02.png" alt="" aria-hidden="true" loading="lazy" />
           </div>
           <div className="section-copy reveal delay-1">
             <p className="eyebrow">Evento para todos</p>
@@ -261,11 +264,13 @@ function Landing() {
             </div>
             <div className="visual-card reveal delay-1">
               <img src="/assets/pages/page-05.webp" alt="Diferenciais do evento FDS Gourmet Festival" loading="lazy" />
+              <img className="section-mascot mascot-badge mascot-one" src="/assets/mascote-fds-gourmet.png" alt="" aria-hidden="true" loading="lazy" />
             </div>
           </div>
         </section>
 
         <section id="cidade" className="city-section section-shell">
+          <img className="section-mascot mascot-city" src="/assets/mascote-fds-gourmet-02.png" alt="" aria-hidden="true" loading="lazy" />
           <div className="section-copy reveal">
             <p className="eyebrow">Contrapartida para a cidade</p>
             <h2>Por que levar o evento para sua cidade?</h2>
@@ -354,6 +359,7 @@ function Landing() {
           </div>
           <div className="contact-image reveal delay-1">
             <img src="/assets/pages/page-20.webp" alt="Informações de contato FDS Gourmet" loading="lazy" />
+            <img className="section-mascot mascot-contact mascot-one" src="/assets/mascote-fds-gourmet.png" alt="" aria-hidden="true" loading="lazy" />
           </div>
         </section>
       </main>
