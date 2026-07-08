@@ -165,6 +165,10 @@ function Landing() {
                 Ativar som
               </button>
             )}
+            <div className="hero-mascot" aria-hidden="true">
+              <span className="hero-mascot-bubble">Vamos levar esse sabor para sua cidade?</span>
+              <img src="/assets/mascote-fds-gourmet.png" alt="" />
+            </div>
           </div>
         </section>
 
