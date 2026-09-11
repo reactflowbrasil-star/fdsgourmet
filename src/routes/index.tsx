@@ -199,7 +199,7 @@ function Landing() {
             <p>A proposta é oferecer uma estrutura completa para restaurantes, comércio varejista, empreendedores e comunidade participarem de um evento de alto impacto local.</p>
           </div>
           <div className="visual-card reveal delay-1">
-            <img src="/assets/pages/page-02.webp" alt="Resumo do Projeto FDS Gourmet Tour Brasil" loading="lazy" />
+            <img src="/assets/mascote-fds-gourmet.png" alt="Mascote do FDS Gourmet" loading="lazy" />
           </div>
         </section>
 
