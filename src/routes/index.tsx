@@ -177,10 +177,6 @@ function Landing() {
                 Ativar som
               </button>
             )}
-            <div className="hero-mascot" aria-hidden="true">
-              <span className="hero-mascot-bubble">Vamos levar esse sabor para sua cidade?</span>
-              <img src="/assets/mascote-fds-gourmet.png" alt="" />
-            </div>
           </div>
         </section>
 
@@ -203,9 +199,6 @@ function Landing() {
           </div>
         </section>
 
-        <div className="section-mascot-break mascot-break-right" aria-hidden="true">
-          <img className="section-mascot mascot-one" src="/assets/mascote-fds-gourmet-02.png" alt="" loading="lazy" />
-        </div>
 
         <section id="atrativos" className="feature-section">
           <div className="section-shell center reveal">
@@ -246,9 +239,6 @@ function Landing() {
           </div>
         </section>
 
-        <div className="section-mascot-break mascot-break-left" aria-hidden="true">
-          <img className="section-mascot mascot-two" src="/assets/mascote-fds-gourmet.png" alt="" loading="lazy" />
-        </div>
 
         <section className="family-section section-shell">
           <div className="phone-gallery reveal">
@@ -285,9 +275,6 @@ function Landing() {
           </div>
         </section>
 
-        <div className="section-mascot-break mascot-break-center" aria-hidden="true">
-          <img className="section-mascot mascot-one" src="/assets/mascote-fds-gourmet.png" alt="" loading="lazy" />
-        </div>
 
         <section id="cidade" className="city-section section-shell">
           <div className="section-copy reveal">
