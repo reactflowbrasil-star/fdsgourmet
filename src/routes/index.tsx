@@ -242,7 +242,7 @@ function Landing() {
 
         <section className="family-section section-shell">
           <div className="mascot-visual reveal">
-            <img src="/assets/mascote-familia.png" alt="Mascote e família do FDS Gourmet" loading="lazy" />
+            <img src="/assets/mascote-fds-gourmet-02.png" alt="Mascote e família do FDS Gourmet" loading="lazy" />
           </div>
           <div className="section-copy reveal delay-1">
             <p className="eyebrow">Evento para todos</p>
