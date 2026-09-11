@@ -330,12 +330,14 @@ function Landing() {
           <div className="video-cards reveal delay-1">
             {videoItems.map((video) => (
               video.title === "Edição Araxá - MG" ? (
-                <a className="video-card" href={video.src} target="_blank" rel="noopener noreferrer" key={video.src} aria-label={`Abrir ${video.title}`} style={{ backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .72)), url(${video.cover})` }}>
-                  <span>{video.title}</span>
+                <a className="video-card video-card--featured" href={video.src} target="_blank" rel="noopener noreferrer" key={video.src} aria-label={`Abrir ${video.title}`} style={{ backgroundImage: `linear-gradient(180deg, rgba(5, 31, 34, .06), rgba(5, 31, 34, .88)), url(${video.cover})` }}>
+                  <span className="video-card-kicker">FDS Gourmet · Filme</span>
+                  <span className="video-card-title">{video.title}</span>
                 </a>
               ) : (
-                <button className="video-card" type="button" key={video.src} onClick={() => setVideoPlayer(video)} aria-label={`Reproduzir ${video.title}`} style={{ backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .72)), url(${video.cover})` }}>
-                  <span>{video.title}</span>
+                <button className="video-card" type="button" key={video.src} onClick={() => setVideoPlayer(video)} aria-label={`Reproduzir ${video.title}`} style={{ backgroundImage: `linear-gradient(180deg, rgba(5, 31, 34, .08), rgba(5, 31, 34, .88)), url(${video.cover})` }}>
+                  <span className="video-card-kicker">FDS Gourmet · Reportagem</span>
+                  <span className="video-card-title">{video.title}</span>
                 </button>
               )
             ))}

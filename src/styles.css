@@ -258,9 +258,15 @@ h3 { margin-bottom: 10px; color: #1d2225; font-size: 1.18rem; line-height: 1.18;
 .social-links a { padding: 12px 16px; border-radius: 999px; background: #fff; border: 1px solid var(--line); color: var(--teal-dark); font-weight: 820; line-height: 1.2; }
 
 .video-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.video-card { position: relative; min-height: 138px; display: flex; align-items: end; padding: 22px; border: 0; border-radius: var(--radius-lg); overflow: hidden; color: #fff; background-color: var(--teal); background-position: center; background-size: cover; font: inherit; font-weight: 850; line-height: 1.15; text-align: left; text-wrap: balance; box-shadow: 0 18px 38px rgba(0, 0, 0, .08); cursor: pointer; }
-.video-card::before { content: "▶"; position: absolute; top: 18px; right: 18px; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: rgba(255, 255, 255, .18); }
-.video-card span { position: relative; z-index: 1; max-width: 88%; }
+.video-card { position: relative; min-height: 154px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 22px; border: 1px solid rgba(255, 255, 255, .18); border-radius: var(--radius-lg); overflow: hidden; color: #fff; background-color: var(--teal); background-position: center; background-size: cover; font: inherit; font-weight: 850; line-height: 1.15; text-align: left; text-decoration: none; text-wrap: balance; box-shadow: 0 18px 38px rgba(0, 0, 0, .10); cursor: pointer; isolation: isolate; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+.video-card::before { content: "▶"; position: absolute; top: 18px; right: 18px; z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255, 255, 255, .42); border-radius: 50%; background: rgba(255, 255, 255, .16); color: #fff; font-size: .82rem; backdrop-filter: blur(8px); transition: transform .3s ease, background .3s ease; }
+.video-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(115deg, rgba(0, 183, 190, .30), transparent 45%), radial-gradient(circle at 88% 12%, rgba(255, 143, 54, .42), transparent 28%); opacity: .9; pointer-events: none; }
+.video-card:hover { transform: translateY(-5px); border-color: rgba(255, 255, 255, .55); box-shadow: 0 24px 46px rgba(0, 0, 0, .18); }
+.video-card:hover::before { transform: scale(1.08); background: rgba(255, 255, 255, .28); }
+.video-card-kicker, .video-card-title { position: relative; z-index: 1; max-width: 88%; }
+.video-card-kicker { margin-bottom: 8px; color: rgba(255, 255, 255, .72); font-size: .62rem; font-weight: 850; letter-spacing: .14em; line-height: 1.2; text-transform: uppercase; }
+.video-card-title { font-size: 1.06rem; text-shadow: 0 2px 14px rgba(0, 0, 0, .42); }
+.video-card--featured { min-height: 154px; }
 .video-card:nth-child(2n) { background-color: var(--orange); }
 .video-card:nth-child(5) { grid-column: span 2; }
 
