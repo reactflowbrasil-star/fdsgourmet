@@ -241,8 +241,8 @@ function Landing() {
 
 
         <section className="family-section section-shell">
-          <div className="phone-gallery reveal">
-            <img src="/assets/pages/page-04.webp" alt="Festival para incluir toda família" loading="lazy" />
+          <div className="mascot-visual reveal">
+            <img src="/assets/mascote-familia.png" alt="Mascote e família do FDS Gourmet" loading="lazy" />
           </div>
           <div className="section-copy reveal delay-1">
             <p className="eyebrow">Evento para todos</p>
