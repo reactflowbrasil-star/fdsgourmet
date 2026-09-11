@@ -10,11 +10,20 @@ const WA_INFO = "https://wa.me/5562982195886?text=Ol%C3%A1%2C%20quero%20mais%20i
 const WA_FLOATING = "https://wa.me/556282195886?text=Desejo%20trazer%20o%20evento%20para%20minha%20cidade!";
 
 const galleryPages = Array.from({ length: 20 }, (_, i) => String(i + 1).padStart(2, "0"));
+const videoItems = [
+  { title: "Edição Araxá - MG", src: "https://globoplay.globo.com/v/6077204/", cover: "/assets/pages/page-01.webp" },
+  { title: "Edição Goiânia - GO / Buriti Shopping", src: "https://www.youtube.com/embed/aWa9Laq2plY", cover: "https://img.youtube.com/vi/aWa9Laq2plY/hqdefault.jpg" },
+  { title: "Edição Anápolis - GO / Brasil Park Shopping", src: "https://www.youtube.com/embed/Odnd-T6512c?start=27", cover: "https://img.youtube.com/vi/Odnd-T6512c/hqdefault.jpg" },
+  { title: "Edição Uberaba - MG / Uberaba Shopping", src: "https://www.youtube.com/embed/3UTRof8YVNQ?start=10", cover: "https://img.youtube.com/vi/3UTRof8YVNQ/hqdefault.jpg" },
+  { title: "Edição Goiânia / Centro Cultural Oscar Niemeyer", src: "https://www.youtube.com/embed/xBKNsqVE-0", cover: "https://img.youtube.com/vi/xBKNsqVE-0/hqdefault.jpg" },
+  { title: "Edição Goiânia - GO / Buriti Shopping", src: "https://www.youtube.com/embed/HvpVp4a280U", cover: "https://img.youtube.com/vi/HvpVp4a280U/hqdefault.jpg" },
+];
 
 function Landing() {
   const [scrolled, setScrolled] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [videoPlayer, setVideoPlayer] = useState<{ src: string; title: string } | null>(null);
   const [videoMuted, setVideoMuted] = useState(true);
   const rootRef = useRef<HTMLDivElement>(null);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
@@ -44,18 +53,21 @@ function Landing() {
   }, []);
 
   useEffect(() => {
-    if (!lightbox) return;
+    if (!lightbox && !videoPlayer) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
+      if (e.key === "Escape") {
+        setLightbox(null);
+        setVideoPlayer(null);
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
     };
-  }, [lightbox]);
+  }, [lightbox, videoPlayer]);
 
   useEffect(() => {
     const video = heroVideoRef.current;
@@ -316,11 +328,17 @@ function Landing() {
           </div>
 
           <div className="video-cards reveal delay-1">
-            <a className="video-card" href="#" aria-label="Edição Araxá MG">Edição Araxá - MG</a>
-            <a className="video-card" href="#" aria-label="Goiânia Buriti Shopping">Goiânia - Buriti Shopping</a>
-            <a className="video-card" href="#" aria-label="Brasil Park Shopping">Brasil Park Shopping</a>
-            <a className="video-card" href="#" aria-label="Uberaba Shopping">Uberaba Shopping</a>
-            <a className="video-card" href="#" aria-label="Centro Cultural Oscar Niemeyer">Centro Cultural Oscar Niemeyer</a>
+            {videoItems.map((video) => (
+              video.title === "Edição Araxá - MG" ? (
+                <a className="video-card" href={video.src} target="_blank" rel="noopener noreferrer" key={video.src} aria-label={`Abrir ${video.title}`} style={{ backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .72)), url(${video.cover})` }}>
+                  <span>{video.title}</span>
+                </a>
+              ) : (
+                <button className="video-card" type="button" key={video.src} onClick={() => setVideoPlayer(video)} aria-label={`Reproduzir ${video.title}`} style={{ backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .72)), url(${video.cover})` }}>
+                  <span>{video.title}</span>
+                </button>
+              )
+            ))}
           </div>
         </section>
 
@@ -396,6 +414,26 @@ function Landing() {
       >
         <button type="button" className="lightbox-close" aria-label="Fechar imagem" onClick={() => setLightbox(null)}>×</button>
         <img src={lightbox?.src ?? ""} alt={lightbox?.alt ?? ""} />
+      </div>
+
+      <div
+        className={`video-lightbox${videoPlayer ? " is-open" : ""}`}
+        aria-hidden={!videoPlayer}
+        role="dialog"
+        aria-label={videoPlayer?.title ?? "Player de vídeo"}
+        onClick={(e) => { if (e.target === e.currentTarget) setVideoPlayer(null); }}
+      >
+        <button type="button" className="lightbox-close" aria-label="Fechar vídeo" onClick={() => setVideoPlayer(null)}>×</button>
+        {videoPlayer && (
+          <div className="video-player-frame">
+            <iframe
+              src={videoPlayer.src}
+              title={videoPlayer.title}
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        )}
       </div>
     </div>
   );

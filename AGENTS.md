@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Git workflow
+
+After each project modification, stage the intended changes, create a commit, and push it to the `main` branch.
