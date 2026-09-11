@@ -353,8 +353,8 @@ function Landing() {
 
           <div className="gallery-grid section-shell">
             {galleryPages.map((n) => {
-              const full = `/assets/pages/page-${n}.webp`;
-              const thumb = `/assets/thumbs/page-${n}.webp`;
+              const full = `/assets/project-pages/page-${n}.jpg`;
+              const thumb = `/assets/project-pages/page-${n}.jpg`;
               const alt = `Página ${Number(n)} da apresentação FDS Gourmet`;
               return (
                 <button
