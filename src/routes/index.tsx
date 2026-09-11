@@ -198,7 +198,7 @@ function Landing() {
             <p>O FDS Gourmet, também conhecido como Fim de Semana Gourmet, nasceu em 2015 e já percorreu estados como Goiás, Minas Gerais, Mato Grosso, Tocantins e Maranhão.</p>
             <p>A proposta é oferecer uma estrutura completa para restaurantes, comércio varejista, empreendedores e comunidade participarem de um evento de alto impacto local.</p>
           </div>
-          <div className="visual-card reveal delay-1">
+          <div className="mascot-visual reveal delay-1">
             <img src="/assets/mascote-fds-gourmet.png" alt="Mascote do FDS Gourmet" loading="lazy" />
           </div>
         </section>
@@ -279,7 +279,7 @@ function Landing() {
                 <span>Junção de gastronomia, shows, exposições e cultura</span>
               </div>
             </div>
-            <div className="visual-card reveal delay-1">
+            <div className="mascot-visual reveal delay-1">
               <img src="/assets/pages/page-05.webp" alt="Diferenciais do evento FDS Gourmet Festival" loading="lazy" />
             </div>
           </div>
