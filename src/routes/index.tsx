@@ -9,7 +9,7 @@ const WA_HOME = "https://wa.me/5562982195886?text=Ol%C3%A1%2C%20quero%20levar%20
 const WA_INFO = "https://wa.me/5562982195886?text=Ol%C3%A1%2C%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20FDS%20Gourmet%20Festival.";
 const WA_FLOATING = "https://wa.me/556282195886?text=Desejo%20trazer%20o%20evento%20para%20minha%20cidade!";
 
-const galleryPages = Array.from({ length: 20 }, (_, i) => String(i + 1).padStart(2, "0"));
+const galleryPages = Array.from({ length: 21 }, (_, i) => String(i + 1).padStart(2, "0"));
 const videoItems = [
   { title: "Edição Araxá - MG", src: "https://globoplay.globo.com/v/6077204/", cover: "/assets/pages/page-01.webp" },
   { title: "Edição Goiânia - GO / Buriti Shopping", src: "https://www.youtube.com/embed/aWa9Laq2plY", cover: "https://img.youtube.com/vi/aWa9Laq2plY/hqdefault.jpg" },
