@@ -106,7 +106,7 @@ function Landing() {
         <section className="hero section-shell">
           <div className="hero-copy reveal">
             <p className="eyebrow">Apresentação de negócio</p>
-            <h1>Leve o FDS Gourmet Festival para sua cidade.</h1>
+            <h1>FDS Gourmet Tour 2027</h1>
             <p className="lead">
               Um evento gratuito, familiar e estruturado para movimentar a economia local com
               gastronomia, entretenimento, comércio, cultura e experiências para toda a
