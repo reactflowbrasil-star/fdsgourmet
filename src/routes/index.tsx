@@ -15,7 +15,7 @@ const videoItems = [
   { title: "Edição Goiânia - GO / Buriti Shopping", src: "https://www.youtube.com/embed/aWa9Laq2plY", cover: "https://img.youtube.com/vi/aWa9Laq2plY/hqdefault.jpg" },
   { title: "Edição Anápolis - GO / Brasil Park Shopping", src: "https://www.youtube.com/embed/Odnd-T6512c?start=27", cover: "https://img.youtube.com/vi/Odnd-T6512c/hqdefault.jpg" },
   { title: "Edição Uberaba - MG / Uberaba Shopping", src: "https://www.youtube.com/embed/3UTRof8YVNQ?start=10", cover: "https://img.youtube.com/vi/3UTRof8YVNQ/hqdefault.jpg" },
-  { title: "Edição Goiânia / Centro Cultural Oscar Niemeyer", src: "https://www.youtube.com/embed/xBKNsqVE-0", cover: "https://img.youtube.com/vi/xBKNsqVE-0/hqdefault.jpg" },
+  { title: "Edição Goiânia / Centro Cultural Oscar Niemeyer", src: "https://www.youtube.com/embed/xBKNsqVE-0", cover: "/assets/video-oscar-niemeyer-cover.png" },
   { title: "Edição Goiânia - GO / Buriti Shopping", src: "https://www.youtube.com/embed/HvpVp4a280U", cover: "https://img.youtube.com/vi/HvpVp4a280U/hqdefault.jpg" },
 ];
 
