@@ -1,16 +1,5 @@
 ---
 deployment:
   tasks:
-    - export APPROOT=/home/fdsgourm/repositories/fdsgourmet
     - export DEPLOYPATH=/home/fdsgourm/public_html/
-    - export LOGFILE=/home/fdsgourm/deploy.log
-    - export PATH=/home/fdsgourm/nodevenv/repositories/fdsgourmet/22/bin:$PATH
-    - echo "=== DEPLOY $(date -Is) ===" > "$LOGFILE"
-    - cd "$APPROOT"
-    - 'command -v node >> "$LOGFILE" 2>&1 || { echo "ERRO: Node.js nao encontrado no ambiente virtual" >> "$LOGFILE"; exit 1; }'
-    - node --version >> "$LOGFILE" 2>&1
-    - npm --version >> "$LOGFILE" 2>&1
-    - npm install --no-audit --no-fund >> "$LOGFILE" 2>&1
-    - npm run build >> "$LOGFILE" 2>&1
-    - /bin/cp -R .output/public/. "$DEPLOYPATH" >> "$LOGFILE" 2>&1
-    - echo "=== DEPLOY CONCLUIDO $(date -Is) ===" >> "$LOGFILE"
+    - /bin/cp -R .output/public/. $DEPLOYPATH
