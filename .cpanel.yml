@@ -3,10 +3,10 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/fdsgourm/public_html/
     - export LOGFILE=/home/fdsgourm/deploy.log
-    - echo "=== DEPLOY $(date -Is) ===" >> "$LOGFILE"
-    - command -v node >> "$LOGFILE" 2>&1
+    - export PATH=/opt/cpanel/ea-nodejs22/bin:/opt/cpanel/ea-nodejs20/bin:/opt/cpanel/ea-nodejs18/bin:/opt/cpanel/ea-nodejs16/bin:$PATH
+    - echo "=== DEPLOY $(date -Is) ===" > "$LOGFILE"
+    - 'command -v node >> "$LOGFILE" 2>&1 || { echo "ERRO: Node.js nao encontrado" >> "$LOGFILE"; exit 1; }'
     - node --version >> "$LOGFILE" 2>&1
-    - command -v npm >> "$LOGFILE" 2>&1
     - npm --version >> "$LOGFILE" 2>&1
     - npm install --no-audit --no-fund >> "$LOGFILE" 2>&1
     - npm run build >> "$LOGFILE" 2>&1
