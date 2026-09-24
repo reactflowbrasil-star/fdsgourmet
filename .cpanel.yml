@@ -2,6 +2,13 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/fdsgourm/public_html/
-    - npm install
-    - npm run build
-    - /bin/cp -R dist/. $DEPLOYPATH
+    - export LOGFILE=/home/fdsgourm/deploy.log
+    - echo "=== DEPLOY $(date -Is) ===" >> "$LOGFILE"
+    - command -v node >> "$LOGFILE" 2>&1
+    - node --version >> "$LOGFILE" 2>&1
+    - command -v npm >> "$LOGFILE" 2>&1
+    - npm --version >> "$LOGFILE" 2>&1
+    - npm install --no-audit --no-fund >> "$LOGFILE" 2>&1
+    - npm run build >> "$LOGFILE" 2>&1
+    - /bin/cp -R dist/. "$DEPLOYPATH" >> "$LOGFILE" 2>&1
+    - echo "=== DEPLOY CONCLUIDO $(date -Is) ===" >> "$LOGFILE"
