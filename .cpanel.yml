@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/fdsgourm/public_html/
-    - /bin/cp -R .output/public/. $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp -R public/. $DEPLOYPATH
