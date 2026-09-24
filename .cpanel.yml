@@ -1,11 +1,13 @@
 ---
 deployment:
   tasks:
+    - export APPROOT=/home/fdsgourm/repositories/fdsgourmet
     - export DEPLOYPATH=/home/fdsgourm/public_html/
     - export LOGFILE=/home/fdsgourm/deploy.log
-    - export PATH=/opt/cpanel/ea-nodejs22/bin:/opt/cpanel/ea-nodejs20/bin:/opt/cpanel/ea-nodejs18/bin:/opt/cpanel/ea-nodejs16/bin:$PATH
+    - export PATH=/home/fdsgourm/nodevenv/repositories/fdsgourmet/22/bin:$PATH
     - echo "=== DEPLOY $(date -Is) ===" > "$LOGFILE"
-    - 'command -v node >> "$LOGFILE" 2>&1 || { echo "ERRO: Node.js nao encontrado. Ative Node.js Selector no cPanel." >> "$LOGFILE"; exit 1; }'
+    - cd "$APPROOT"
+    - 'command -v node >> "$LOGFILE" 2>&1 || { echo "ERRO: Node.js nao encontrado no ambiente virtual" >> "$LOGFILE"; exit 1; }'
     - node --version >> "$LOGFILE" 2>&1
     - npm --version >> "$LOGFILE" 2>&1
     - npm install --no-audit --no-fund >> "$LOGFILE" 2>&1
