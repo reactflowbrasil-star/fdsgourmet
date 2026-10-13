@@ -1,6 +1,4 @@
-// Nitro 3 exports its config helper from the package root.
-import { defineNitroConfig } from "nitro";
-
-export default defineNitroConfig({
+// Nitro 3 loads this file as a plain configuration object.
+export default {
   preset: "netlify",
-});
+};
