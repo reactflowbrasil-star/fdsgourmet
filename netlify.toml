@@ -6,8 +6,3 @@
   NODE_VERSION = "22"
   BUN_VERSION = "1.2.5"
   NPM_FLAGS = "--version"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
